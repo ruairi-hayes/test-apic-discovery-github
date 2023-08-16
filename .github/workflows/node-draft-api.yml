@@ -8,9 +8,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: ruairi-hayes/apic-discovery-action@main
+      id: discover-apis
       with:
         milliseconds: 5000
         api-host: platform-api.d-h01.apiconnect.dev.automation.ibm.com
         provider-org: 'ruairi_h01_b'
         api-key: ${{ secrets.apicApikey }}
         api-file: 'echo-api.yaml'
+    - name: Display the action-result
+      run: |
+        echo "Result of the action: ${{ steps.discover-apis.outputs.action-result
