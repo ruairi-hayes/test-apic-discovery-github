@@ -1,0 +1,19 @@
+name: Script to curl apic
+
+on: [pull_request, workflow_dispatch]
+env:
+  client_id: 599b7aef-8841-4ee2-88a0-84d49c4d6ff2
+  client_secret: 0ea28423-e73b-47d4-b40e-ddb45c48bb0c
+  api-host: platform-api.d-h01.apiconnect.dev.automation.ibm.com/
+
+jobs:
+  run-updater:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: curl apic to publish document
+      run: |
+        BODY='{"client_id":"${{ client_id }}","client_secret":"${{ client_secret }}","grant_type":"api_key","api_key":"${{ secrets.apic-apikey }}","realm":"provider/default-idp-2"}'
+        TOKEN=`curl -s -k -X "POST" -d $BODY -H "Accept: application/json" -H "Content-Type: application/json" https://${{api-host}}/api/token | jq -r .access_token`
+        echo "Token is:"
+        echo $TOKEN
