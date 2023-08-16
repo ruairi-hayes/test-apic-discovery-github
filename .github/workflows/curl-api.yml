@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: curl apic to publish document
       run: |
-        BODY='{"client_id":"${{ env.client_id }}","client_secret":"${{ env.client_secret }}","grant_type":"api_key","api_key":"${{ secrets.apic-apikey }}","realm":"provider/default-idp-2"}'
+        BODY='{"client_id":"${{ env.client_id }}","client_secret":"${{ env.client_secret }}","grant_type":"api_key","api_key":"${{ secrets.apicApikey }}","realm":"provider/default-idp-2"}'
         TOKEN=`curl -s -k -X "POST" -d $BODY -H "Accept: application/json" -H "Content-Type: application/json" https://${{ env.api-host}}/api/token | jq -r .access_token`
         echo "Token is:"
         echo $TOKEN
