@@ -2,8 +2,9 @@ name: Script to curl apic
 
 on: [pull_request, workflow_dispatch]
 env:
-  client_id: 599b7aef-8841-4ee2-88a0-84d49c4d6ff2
-  client_secret: 0ea28423-e73b-47d4-b40e-ddb45c48bb0c
+  provider-org: 'ruairi_h01_b'
+  client-id: 599b7aef-8841-4ee2-88a0-84d49c4d6ff2
+  client-secret: 0ea28423-e73b-47d4-b40e-ddb45c48bb0c
   api-host: platform-api.d-h01.apiconnect.dev.automation.ibm.com
 
 jobs:
@@ -13,7 +14,16 @@ jobs:
     - uses: actions/checkout@v3
     - name: curl apic to publish document
       run: |
-        BODY='{"client_id":"${{ env.client_id }}","client_secret":"${{ env.client_secret }}","grant_type":"api_key","api_key":"${{ secrets.apicApikey }}","realm":"provider/default-idp-2"}'
+        BODY='{"client_id":"${{ env.client-id }}","client_secret":"${{ env.client-secret }}","grant_type":"api_key","api_key":"${{ secrets.apicApikey }}","realm":"provider/default-idp-2"}'
         TOKEN=`curl -s -k -X "POST" -d $BODY -H "Accept: application/json" -H "Content-Type: application/json" https://${{ env.api-host}}/api/token | jq -r .access_token`
         echo "Token is:"
         echo $TOKEN
+        CURRENT_PATH=`pwd`
+        #openapi="@$CURRENT_PATH/../../echo-api.yaml
+        CODE=`curl --write-out '%{http_code}' -k -X POST -H 'Accept: application/json' -H "Authorization: Bearer $TOKEN" https://${{ env.api-host}}/api/orgs/${{ env.provider-org }}/drafts/draft-apis -F openapi="@$CURRENT_PATH/../../echo-api.yaml;type=application/yaml" -H 'Content-Type: multipart/form-data'`
+        if [ $CODE!="200" ] 
+        then
+            echo "FAILURE. http status code is " $CODE
+        else
+            echo "SUCCESS"
+        fi
