@@ -4,7 +4,7 @@ on: [pull_request, workflow_dispatch]
 env:
   client_id: 599b7aef-8841-4ee2-88a0-84d49c4d6ff2
   client_secret: 0ea28423-e73b-47d4-b40e-ddb45c48bb0c
-  api-host: platform-api.d-h01.apiconnect.dev.automation.ibm.com/
+  api-host: platform-api.d-h01.apiconnect.dev.automation.ibm.com
 
 jobs:
   run-updater:
