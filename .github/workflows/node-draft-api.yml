@@ -17,4 +17,4 @@ jobs:
         api-file: 'echo-api.yaml'
     - name: Display the action-result
       run: |
-        echo "Result of the action: ${{ steps.discover-apis.outputs.action-result }}
+        echo "Result of the action: ${{ steps.discover-apis.outputs.action-result }}"
