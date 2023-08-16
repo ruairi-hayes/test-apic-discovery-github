@@ -15,5 +15,5 @@ jobs:
         api-host: platform-api.d-h01.apiconnect.dev.automation.ibm.com
         provider-org: 'ruairi_h01_b'
         catalog: 'sandbox'
-        apikey: ${{ secrets.apic-apikey }}
+        apikey: ${{ secrets.apicApikey }}
         product-file: 'product.yaml'
