@@ -10,3 +10,7 @@ jobs:
     - uses: ruairi-hayes/apic-discovery-action@main
       with:
         milliseconds: 5000
+        api-host: platform-api.d-h01.apiconnect.dev.automation.ibm.com
+        provider-org: 'ruairi_h01_b'
+        api-key: ${{ secrets.apicApikey }}
+        api-file: 'echo-api.yaml'
