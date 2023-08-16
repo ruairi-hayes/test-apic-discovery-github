@@ -18,9 +18,10 @@ jobs:
         TOKEN=`curl -s -k -X "POST" -d $BODY -H "Accept: application/json" -H "Content-Type: application/json" https://${{ env.api-host}}/api/token | jq -r .access_token`
         echo "Token is:"
         echo $TOKEN
-        CURRENT_PATH=`pwd`
+        echo `ls`
+        #CURRENT_PATH=`pwd`
         #openapi="@$CURRENT_PATH/../../echo-api.yaml
-        CODE=`curl --write-out '%{http_code}' -k -X POST -H 'Accept: application/json' -H "Authorization: Bearer $TOKEN" https://${{ env.api-host}}/api/orgs/${{ env.provider-org }}/drafts/draft-apis -F openapi="@$CURRENT_PATH/../../echo-api.yaml;type=application/yaml" -H 'Content-Type: multipart/form-data'`
+        CODE=`curl --write-out '%{http_code}' -k -X POST -H 'Accept: application/json' -H "Authorization: Bearer $TOKEN" https://${{ env.api-host}}/api/orgs/${{ env.provider-org }}/drafts/draft-apis -F openapi="@echo-api.yaml;type=application/yaml" -H 'Content-Type: multipart/form-data'`
         if [ $CODE!="200" ] 
         then
             echo "FAILURE. http status code is " $CODE
