@@ -14,7 +14,7 @@ jobs:
         api_host: platform-api.d-h01.apiconnect.dev.automation.ibm.com
         provider_org: 'ruairi_h01_b'
         api_key: ${{ secrets.apicApikey }}
-        api_file: ${{ github.workspace }}/echo-api.yaml
+        api_file: ${{ github.workspace }}/echo-api.json
     - name: Display the action-result
       run: |
         echo "Result of the action: ${{ steps.discover-apis.outputs.action-result }}"
