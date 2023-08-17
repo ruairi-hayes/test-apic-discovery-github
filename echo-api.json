@@ -5,8 +5,8 @@
       "x-ibm-name": "echo-api",
       "version": "1.1.0",
       "contact": {
-        "name": "Ricky Moorhouse",
-        "email": "moorh@uk.ibm.com"
+        "name": "Setanta",
+        "email": "setanta@ie.ibm.com"
       }
     },
     "host": "$(catalog.host)",
