@@ -1,4 +1,4 @@
-name: Create draft API with Javascript
+name: Discover API with Javascript
 
 on: [pull_request, workflow_dispatch, push]
 
@@ -11,10 +11,10 @@ jobs:
       id: discover-apis
       with:
         milliseconds: 5000
-        api_host: platform-api.d-h01.apiconnect.dev.automation.ibm.com
+        api_host: d-h01.apiconnect.dev.automation.ibm.com
         provider_org: 'ruairi_h01_b'
         api_key: ${{ secrets.apicApikey }}
-        api_file: ${{ github.workspace }}/echo-api.json
+        api_file: ${{ github.workspace }}/gmail-api.json
     - name: Display the action-result
       run: |
         echo "Result of the action: ${{ steps.discover-apis.outputs.action-result }}"
