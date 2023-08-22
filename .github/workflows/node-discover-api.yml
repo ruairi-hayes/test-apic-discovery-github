@@ -22,6 +22,7 @@ jobs:
         echo This $API_FILE
         echo That {{ $env.API_FILE }}
         echo Found file is $(git diff --name-only --diff-filter=ACMRT ${{ github.sha }} | grep $API_FILE | xargs)
+        echo All files chnaged are $(git diff --name-only --diff-filter=ACMRT ${{ github.sha }} | xargs)
         echo "apifile_updates=$(git diff --name-only --diff-filter=ACMRT ${{ github.sha }} | grep $API_FILE | xargs)" >> $GITHUB_OUTPUT
   run-discovery:
     runs-on: ubuntu-latest
