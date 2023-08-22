@@ -19,6 +19,8 @@ jobs:
       id: check_apifile_changed
       run: |
         #echo "::set-output name=apifile_updates::$(git diff --name-only --diff-filter=ACMRT ${{ github.sha }} | grep $API_FILE | xargs)"
+        echo This $API_FILE
+        echo That {{ $env.API_FILE }}
         echo Found file is $(git diff --name-only --diff-filter=ACMRT ${{ github.sha }} | grep $API_FILE | xargs)
         echo "apifile_updates=$(git diff --name-only --diff-filter=ACMRT ${{ github.sha }} | grep $API_FILE | xargs)" >> $GITHUB_OUTPUT
   run-discovery:
