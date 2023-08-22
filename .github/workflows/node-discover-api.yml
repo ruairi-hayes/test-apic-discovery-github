@@ -39,7 +39,7 @@ jobs:
         api_host: $API_HOST
         provider_org: $PROVIDER_ORG
         api_key: ${{ secrets.apicApikey }}
-        api_file: ${{ env.$API_FILE }}
+        api_file: ${{ env.API_FILE }}
     - name: Display the action-result
       run: |
         echo "Result of the action: ${{ steps.discover-apis.outputs.action-result }}"
