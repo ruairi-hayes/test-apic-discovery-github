@@ -1,4 +1,4 @@
-name: Discover API with Javascript
+name: Sync Discovered API with ApiConnect
 
 on: [pull_request, workflow_dispatch, push]
 
