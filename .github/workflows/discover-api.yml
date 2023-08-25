@@ -22,7 +22,7 @@ jobs:
       id: check_files_changed
       run: |
         #echo "::set-output name=apifile_updates::$(git diff --name-only --diff-filter=ACMRT ${{ github.sha }} | grep $API_FILE | xargs)"
-        echo This $API_FILE
+        echo This file $API_FILE
         echo That {{ $env.API_FILE }}
         echo Found file is $(git diff --name-only --diff-filter=ACMRT ${{ github.event.before }} ${{ github.sha }} | grep $API_FILE | xargs)
         echo All files changed are $(git diff --name-only --diff-filter=ACMRT ${{ github.event.before }} ${{ github.sha }} | xargs)
