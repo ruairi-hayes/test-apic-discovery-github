@@ -5,8 +5,8 @@ on: [pull_request, workflow_dispatch, push]
 env:
   API_HOST: us-east-a.apiconnect.automation.ibm.com
   PROVIDER_ORG: acme-coffee-roasters
-  API_FILES: APIfolder/api-with-examples.yaml
-  #API_FOLDERS: APIfolder,APIfolderTwo
+  #API_FILES: APIfolder
+  API_FOLDERS: APIfolder,APIfolderTwo
 
 jobs:
   run-discovery:
