@@ -1,6 +1,7 @@
 swagger: "2.0"  
 info:
   title: Simple API overview
+  name: simple-api-overview
   version: v2
 paths:
   /:
