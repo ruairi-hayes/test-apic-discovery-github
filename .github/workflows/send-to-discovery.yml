@@ -5,8 +5,8 @@ on: [pull_request, workflow_dispatch, push]
 env:
   API_HOST: d-j02.apiconnect.dev.automation.ibm.com
   PROVIDER_ORG: niraimathi
-  #API_FILES: APIfolder
-  API_FOLDERS: APIfolder,APIfolderTwo
+  API_FILES: APIfolder/docusign-developer-centre.yaml
+  #API_FOLDERS: APIfolder,APIfolderTwo
 
 jobs:
   run-discovery:
