@@ -13,6 +13,7 @@ with the parameters supplied
 ```
 with:
   api_host: ${{ env.API_HOST }}
+  platform_api_prefix: ${{ env.PLATFORM_API_PREFIX }}
   provider_org: ${{ env.PROVIDER_ORG }}
   api_key: ${{ secrets.apicApikey }}
   if: env.API_FILES
@@ -24,3 +25,5 @@ with:
 The file `send-to-discovery.yml` is another example of sending API documents with the extra variable **`git_diff`** which sends the git diff files between the current and previous commit. And the discovery action will send the `api_files or api_folders` to the server when there is a change in the files.
 
 The content can be modified according to the test requirement for sending the APIs
+
+Note: When an API with a large payload (complex API more than 1 Mb in size) is sent, there is expected to be some delay in creating the discovered API. It is recommended not to run another workflow simultaneously until you see an API has been created in the discovery service. 
