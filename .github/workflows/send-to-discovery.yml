@@ -6,7 +6,7 @@ env:
   API_HOST: d-j02.apiconnect.dev.automation.ibm.com
   PROVIDER_ORG: ruairi2
   #API_FILES: APIfolder/uber-api.json
-  API_FILES: APIfolder/hotel-reservations.yaml
+  API_FILES: APIfolder/coffee-store.yaml
   #API_FOLDERS: APIfolder,APIfolderTwo
 
 jobs:
