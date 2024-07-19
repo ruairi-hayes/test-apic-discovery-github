@@ -16,12 +16,10 @@ info:
   x-ibm-name: coffee-store
 tags:
   - name: pet
-    description: Everything about your Pets
     externalDocs:
       description: Find out more
       url: http://swagger.io
   - name: store
-    description: Access to Petstore orders
     externalDocs:
       description: Find out more about our store
       url: http://swagger.io
@@ -33,7 +31,6 @@ paths:
       tags:
         - pet
       summary: Add a new pet to the store
-      description: Add a new pet to the store
       operationId: addPet
       responses:
         '200':
