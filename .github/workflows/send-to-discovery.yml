@@ -5,7 +5,8 @@ on: [pull_request, workflow_dispatch, push]
 env:
   API_HOST: d-j02.apiconnect.dev.automation.ibm.com
   PROVIDER_ORG: ruairi2
-  API_FILES: APIfolder/uber-api.json
+  #API_FILES: APIfolder/uber-api.json
+  API_FILES: APIfolder/uber-api-modified.json
   #API_FOLDERS: APIfolder,APIfolderTwo
 
 jobs:
