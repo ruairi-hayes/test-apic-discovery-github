@@ -1,0 +1,170 @@
+openapi: "3.0.0"
+info:
+  title: "Hotel Reservations API"
+  version: "1.0.0"
+  description: "This is the API documentation for the Hotel Reservations API."
+servers:
+  - url: "https://example.com"
+    description: "Production server"
+  - url: "https://staging.example.com"
+    description: "Staging server"
+paths:
+  /reservations:
+    post:
+      summary: "Make a reservation"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: "The customer's first name"
+                last_name:
+                  type: string
+                  description: "The customer's last name"
+                email:
+                  type: string
+                  description: "The customer's email address"
+                phone:
+                  type: string
+                  description: "The customer's phone number"
+                room_type:
+                  type: string
+                  description: "The type of room to book"
+                check_in_date:
+                  type: string
+                  format: date
+                  description: "The check-in date for the booking"
+                check_out_date:
+                  type: string
+                  format: date
+                  description: "The check-out date for the booking"
+                credit_card:
+                  type: string
+                  description: "The customer's credit card number"
+      responses:
+        201:
+          description: "Reservation created successfully"
+        400:
+          description: "Invalid request"
+    get:
+      summary: "Get a list of all reservations"
+      responses:
+        200:
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: "The ID of the reservation"
+                    first_name:
+                      type: string
+                      description: "The customer's first name"
+                    last_name:
+                      type: string
+                      description: "The customer's last name"
+                    email:
+                      type: string
+                      description: "The customer's email address"
+                    phone:
+                      type: string
+                      description: "The customer's phone number"
+                    room_type:
+                      type: string
+                      description: "The type of room booked"
+                    check_in_date:
+                      type: string
+                      format: date
+                      description: "The check-in date for the booking"
+                    check_out_date:
+                      type: string
+                      format: date
+                      description: "The check-out date for the booking"
+                    credit_card:
+                      type: string
+                      description: "The customer's credit card number"
+  /reservations/{reservation_id}:
+    get:
+      summary: "Get details about a specific reservation"
+      parameters:
+        - in: path
+          name: reservation_id
+          required: true
+          schema:
+            type: integer
+            description: "The ID of the reservation"
+      responses:
+        200:
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: "The ID of the reservation"
+                  first_name:
+                    type: string
+                    description: "The customer's first name"
+                  last_name:
+                    type: string
+                    description: "The customer's last name"
+                  email:
+                    type: string
+                    description: "The customer's email address"
+                  phone:
+                    type: string
+                    description: "The customer's phone number"
+                  room_type:
+                    type: string
+                    description: "The type of room booked"
+                  check_in_date:
+                    type: string
+                    format: date
+                    description: "The check-in date for the booking"
+                  check_out_date:
+                    type: string
+                    format: date
+                    description: "The check-out date for the booking"
+                  credit_card:
+                    type: string
+                    description: "The customer's credit card number"
+        404:
+          description: "Reservation not found"
+    put:
+      summary: "Update a reservation"
+      parameters:
+        - in: path
+          name: reservation_id
+          required: true
+          schema:
+            type: integer
+            description: "The ID of the reservation"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: "The customer's first name"
+                last_name:
+                  type: string
+                  description: "The customer's last name"
+                email:
+                  type: string
+                  description: "The customer's email address"
+                phone:
+                  type: string
+                  description: "The customer
